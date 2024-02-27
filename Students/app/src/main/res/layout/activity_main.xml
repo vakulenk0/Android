@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/student_id"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="35dp"
+        android:gravity="center"
+        android:hint="Номер зачётной книжки"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/last_name"
+        app:layout_constraintStart_toStartOf="@+id/last_name"
+        app:layout_constraintTop_toBottomOf="@+id/last_name" />
+
+    <Button
+        android:id="@+id/btnAddStudent"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="200dp"
+        android:text="Добавить"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/specialization" />
+
+    <Button
+        android:id="@+id/btnChangeStudent"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="50dp"
+        android:text="Изменить"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/specialization" />
+
+    <TextView
+        android:id="@+id/first_name"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:hint="Имя"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/last_name"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="35dp"
+        android:gravity="center"
+        android:hint="Фамилия"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/first_name"
+        app:layout_constraintStart_toStartOf="@+id/first_name"
+        app:layout_constraintTop_toBottomOf="@+id/first_name" />
+
+    <TextView
+        android:id="@+id/course"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="35dp"
+        android:gravity="center"
+        android:hint="Курс"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/student_id"
+        app:layout_constraintStart_toStartOf="@+id/student_id"
+        app:layout_constraintTop_toBottomOf="@+id/student_id" />
+
+    <TextView
+        android:id="@+id/specialization"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="35dp"
+        android:gravity="center"
+        android:hint="Специальность"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/course"
+        app:layout_constraintStart_toStartOf="@+id/course"
+        app:layout_constraintTop_toBottomOf="@+id/course" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

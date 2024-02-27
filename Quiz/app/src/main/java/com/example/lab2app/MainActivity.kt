@@ -15,6 +15,9 @@ import androidx.lifecycle.ViewModelProvider
 
 const val LOG_TAG = "log_debug"
 
+//finish() - возвращает назад
+// startActivity() - создаёт новое и стирает данные
+
 class MainActivity : AppCompatActivity() {
     private lateinit var btnTrue: Button
     private lateinit var btnFalse: Button
@@ -68,10 +71,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        findViewById<Button>(R.id.btn_Cheat).setOnClickListener {
-            val intent = CheatActivity.newIntent(this@MainActivity, quizViewModel.currentQuestionAnswer)
-            resultLauncher.launch(intent)
-        }
+//        findViewById<Button>(R.id.btn_Cheat).setOnClickListener {
+//            val intent = CheatActivity.newIntent(this@MainActivity, quizViewModel.currentQuestionAnswer)
+//            resultLauncher.launch(intent)
+//        }
     }
 
     private fun checkAnswer(ans: Boolean){
