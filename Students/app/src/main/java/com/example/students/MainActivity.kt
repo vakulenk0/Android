@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnAddStudent).setOnClickListener {
             val intent = CreateActivity.newIntent(this@MainActivity)
-            startActivity(intent)
+            resultLauncher.launch(intent)
         }
     }
 }
