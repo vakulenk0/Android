@@ -24,13 +24,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnChange: Button
     private lateinit var btnAdd: Button
 
-    companion object {
-        fun newIntent(packageContext: Context, list: ArrayList<String?>): Intent {
-            return Intent(packageContext, MainActivity::class.java).apply {
-                putExtra(KEY_MAIN, list)
-            }
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,8 +59,6 @@ class MainActivity : AppCompatActivity() {
 
         val resultLauncher2 = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
-                Log.d(LOG_TAG, "CreateResultLauncher2")
-                Log.d(LOG_TAG, infoStudent.toString())
                 val data : Intent? = result.data
                 infoStudent = data?.getStringArrayListExtra(KEY_BACK) ?: arrayListOf("", "", "", "", "")
                 tvFirstName.text = infoStudent[0]
@@ -79,8 +70,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnChange.setOnClickListener {
-            Log.d(LOG_TAG, "CreateChangeActivity")
-            Log.d(LOG_TAG, infoStudent.toString())
             if (tvFirstName.text != "" || tvLastName.text != "" || tvStudentId.text != "" ||
             tvCourse.text != "" || tvSpecialization.text != "") {
                 val intent = CreateActivity.newIntent(this@MainActivity, infoStudent)

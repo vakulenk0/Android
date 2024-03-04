@@ -50,30 +50,16 @@ class CreateActivity : AppCompatActivity() {
 
         val studentInfo: ArrayList<String?> = intent?.getStringArrayListExtra(KEY) ?: arrayListOf("", "", "", "", "")
 
-        Log.d(LOG_TAG, "SecondActivity")
-        Log.d(LOG, studentInfo.toString())
-
         pvFirstName.text = studentInfo[0]
         pvLastName.text = studentInfo[1]
         pvIdStudent.text = studentInfo[2]
         pvCourse.text = studentInfo[3]
         pvSpecialization.text = studentInfo[4]
 
-//        if (pvFirstName.text != "" || pvLastName.text != "" || pvIdStudent.text != "" ||
-//            pvCourse.text != "" || pvSpecialization.text != ""){
-//            pvFirstName.text = studentInfo[0]
-//            pvLastName.text = studentInfo[1]
-//            pvIdStudent.text = studentInfo[2]
-//            pvCourse.text = studentInfo[3]
-//            pvSpecialization.text = studentInfo[4]
-//
-//        }
 
         btnCancel.setOnClickListener {
             finish()
         }
-
-
 
         btnSave.setOnClickListener {
             studentInfo[0] = pvFirstName.text.toString()
@@ -81,9 +67,6 @@ class CreateActivity : AppCompatActivity() {
             studentInfo[2] = pvIdStudent.text.toString()
             studentInfo[3] = pvCourse.text.toString()
             studentInfo[4] = pvSpecialization.text.toString()
-
-            Log.d(LOG_TAG, "SecondActivity btnsave")
-            Log.d(LOG, studentInfo.toString())
 
             val data = Intent().apply {
                 putExtra(KEY_BACK, studentInfo)
