@@ -13,10 +13,12 @@
         android:layout_marginTop="35dp"
         android:gravity="center"
         android:hint="Номер зачётной книжки"
+        android:textColorHint="#546E7A"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/last_name"
         app:layout_constraintStart_toStartOf="@+id/last_name"
-        app:layout_constraintTop_toBottomOf="@+id/last_name" />
+        app:layout_constraintTop_toBottomOf="@+id/last_name"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
     <Button
         android:id="@+id/btnAddStudent"
@@ -28,7 +30,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/specialization" />
+        app:layout_constraintTop_toBottomOf="@+id/specialization"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnChangeStudent"
@@ -40,7 +43,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/specialization" />
+        app:layout_constraintTop_toBottomOf="@+id/specialization"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/first_name"
@@ -49,10 +53,12 @@
         android:layout_marginTop="100dp"
         android:gravity="center"
         android:hint="Имя"
+        android:textColorHint="#546E7A"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
     <TextView
         android:id="@+id/last_name"
@@ -61,10 +67,12 @@
         android:layout_marginTop="35dp"
         android:gravity="center"
         android:hint="Фамилия"
+        android:textColorHint="#546E7A"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/first_name"
         app:layout_constraintStart_toStartOf="@+id/first_name"
-        app:layout_constraintTop_toBottomOf="@+id/first_name" />
+        app:layout_constraintTop_toBottomOf="@+id/first_name"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
     <TextView
         android:id="@+id/course"
@@ -73,10 +81,12 @@
         android:layout_marginTop="35dp"
         android:gravity="center"
         android:hint="Курс"
+        android:textColorHint="#546E7A"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/student_id"
         app:layout_constraintStart_toStartOf="@+id/student_id"
-        app:layout_constraintTop_toBottomOf="@+id/student_id" />
+        app:layout_constraintTop_toBottomOf="@+id/student_id"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
     <TextView
         android:id="@+id/specialization"
@@ -85,9 +95,11 @@
         android:layout_marginTop="35dp"
         android:gravity="center"
         android:hint="Специальность"
+        android:textColorHint="#546E7A"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/course"
         app:layout_constraintStart_toStartOf="@+id/course"
-        app:layout_constraintTop_toBottomOf="@+id/course" />
+        app:layout_constraintTop_toBottomOf="@+id/course"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

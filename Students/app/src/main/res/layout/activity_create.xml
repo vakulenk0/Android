@@ -17,9 +17,11 @@
         android:gravity="center"
         android:hint="Имя"
         android:inputType="text"
+        android:textColorHint="#546E7A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/tvLN"
@@ -31,9 +33,11 @@
         android:gravity="center"
         android:hint="Фамилия"
         android:inputType="text"
+        android:textColorHint="#546E7A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/tvId"
@@ -45,9 +49,11 @@
         android:gravity="center"
         android:hint="Номер зачётки"
         android:inputType="text"
+        android:textColorHint="#546E7A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/tvCour"
@@ -59,9 +65,11 @@
         android:gravity="center"
         android:hint="Курс"
         android:inputType="text"
+        android:textColorHint="#546E7A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/tvSpec"
@@ -72,9 +80,11 @@
         android:gravity="center"
         android:hint="Специальность"
         android:inputType="text"
+        android:textColorHint="#546E7A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/btnSaveCr"
@@ -86,7 +96,8 @@
         android:text="Сохранить"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSpec" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSpec"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
     <Button
         android:id="@+id/btnCancelCr"
@@ -98,5 +109,6 @@
         android:text="Отменить"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSpec" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSpec"
+        tools:ignore="HardcodedText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
