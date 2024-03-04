@@ -1,5 +1,6 @@
 package com.example.students
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 
 const val LOG = "debug"
 const val KEY = "Info"
+const val KEY_BACK = "array"
 class CreateActivity : AppCompatActivity() {
 
     private lateinit var pvFirstName: TextView
@@ -51,15 +53,21 @@ class CreateActivity : AppCompatActivity() {
         Log.d(LOG_TAG, "SecondActivity")
         Log.d(LOG, studentInfo.toString())
 
-        if (pvFirstName.text != "" || pvLastName.text != "" || pvIdStudent.text != "" ||
-            pvCourse.text != "" || pvSpecialization.text != ""){
-            pvFirstName.text = studentInfo[0]
-            pvLastName.text = studentInfo[1]
-            pvIdStudent.text = studentInfo[2]
-            pvCourse.text = studentInfo[3]
-            pvSpecialization.text = studentInfo[4]
+        pvFirstName.text = studentInfo[0]
+        pvLastName.text = studentInfo[1]
+        pvIdStudent.text = studentInfo[2]
+        pvCourse.text = studentInfo[3]
+        pvSpecialization.text = studentInfo[4]
 
-        }
+//        if (pvFirstName.text != "" || pvLastName.text != "" || pvIdStudent.text != "" ||
+//            pvCourse.text != "" || pvSpecialization.text != ""){
+//            pvFirstName.text = studentInfo[0]
+//            pvLastName.text = studentInfo[1]
+//            pvIdStudent.text = studentInfo[2]
+//            pvCourse.text = studentInfo[3]
+//            pvSpecialization.text = studentInfo[4]
+//
+//        }
 
         btnCancel.setOnClickListener {
             finish()
@@ -74,8 +82,15 @@ class CreateActivity : AppCompatActivity() {
             studentInfo[3] = pvCourse.text.toString()
             studentInfo[4] = pvSpecialization.text.toString()
 
-            val intent = MainActivity.newIntent(this@CreateActivity, studentInfo)
-            startActivity(intent)
+            Log.d(LOG_TAG, "SecondActivity btnsave")
+            Log.d(LOG, studentInfo.toString())
+
+            val data = Intent().apply {
+                putExtra(KEY_BACK, studentInfo)
+            }
+
+            setResult(Activity.RESULT_OK, data)
+            finish()
         }
 
     }

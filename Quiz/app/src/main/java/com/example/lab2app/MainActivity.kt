@@ -71,10 +71,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-//        findViewById<Button>(R.id.btn_Cheat).setOnClickListener {
-//            val intent = CheatActivity.newIntent(this@MainActivity, quizViewModel.currentQuestionAnswer)
-//            resultLauncher.launch(intent)
-//        }
+
+        findViewById<Button>(R.id.btn_Cheat).setOnClickListener {
+            val intent = CheatActivity.newIntent(this@MainActivity, quizViewModel.currentQuestionAnswer)
+            resultLauncher.launch(intent)
+        }
     }
 
     private fun checkAnswer(ans: Boolean){
