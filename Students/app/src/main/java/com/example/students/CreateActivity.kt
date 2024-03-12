@@ -35,6 +35,16 @@ class CreateActivity : AppCompatActivity() {
         }
     }
 
+    fun isValidText(name: String): Boolean {
+        val regex = """[a-zA-Z]+""".toRegex()
+        return regex.matches(name)
+    }
+
+    fun isValidNumber(name: String): Boolean {
+        val regex = """[0-9]+""".toRegex()
+        return regex.matches(name)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +72,37 @@ class CreateActivity : AppCompatActivity() {
         }
 
         btnSave.setOnClickListener {
+            if (!isValidText(pvFirstName.text.toString())) {
+                pvFirstName.error = "Некорректное имя"
+                return@setOnClickListener
+            }
+
+            if (!isValidText(pvLastName.text.toString())) {
+                pvLastName.error = "Некорректная фамилия"
+                return@setOnClickListener
+            }
+
+            if (!isValidNumber(pvIdStudent.text.toString())) {
+                pvIdStudent.error = "Некорректный Id"
+                return@setOnClickListener
+            }
+
+            if (!isValidNumber(pvCourse.text.toString())) {
+                pvCourse.error = "Некорректный курс"
+                return@setOnClickListener
+            }
+
+            if (!isValidText(pvSpecialization.text.toString())) {
+                pvSpecialization.error = "Некорректная специальность"
+                return@setOnClickListener
+            }
+
+            pvFirstName.error = null
+            pvLastName.error = null
+            pvIdStudent.error = null
+            pvCourse.error = null
+            pvSpecialization.error = null
+
             studentInfo[0] = pvFirstName.text.toString()
             studentInfo[1] = pvLastName.text.toString()
             studentInfo[2] = pvIdStudent.text.toString()
@@ -75,6 +116,8 @@ class CreateActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK, data)
             finish()
         }
+
+
 
     }
 }

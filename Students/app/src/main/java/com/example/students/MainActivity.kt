@@ -42,11 +42,11 @@ class MainActivity : AppCompatActivity() {
             if (result.resultCode == Activity.RESULT_OK) {
                 val data : Intent? = result.data
                 infoStudent = data?.getStringArrayListExtra(KEY_BACK) ?: arrayListOf("", "", "", "", "")
-                tvFirstName.text = infoStudent[0]
-                tvLastName.text = infoStudent[1]
+                tvFirstName.text = infoStudent[0]?.replace(Regex("[^а-яА-Яa-zA-Z]"), "")
+                tvLastName.text = infoStudent[1]?.replace(Regex("[^а-яА-Яa-zA-Z]"), "")
                 tvStudentId.text = infoStudent[2]
                 tvCourse.text = infoStudent[3]
-                tvSpecialization.text = infoStudent[4]
+                tvSpecialization.text = infoStudent[4]?.replace(Regex("[^а-яА-Яa-zA-Z]"), "")
             }
         }
 
@@ -61,11 +61,12 @@ class MainActivity : AppCompatActivity() {
             if (result.resultCode == Activity.RESULT_OK) {
                 val data : Intent? = result.data
                 infoStudent = data?.getStringArrayListExtra(KEY_BACK) ?: arrayListOf("", "", "", "", "")
-                tvFirstName.text = infoStudent[0]
-                tvLastName.text = infoStudent[1]
+
+                tvFirstName.text = infoStudent[0]?.replace(Regex("[^а-яА-Яa-zA-Z]"), "")
+                tvLastName.text = infoStudent[1]?.replace(Regex("[^а-яА-Яa-zA-Z]"), "")
                 tvStudentId.text = infoStudent[2]
                 tvCourse.text = infoStudent[3]
-                tvSpecialization.text = infoStudent[4]
+                tvSpecialization.text = infoStudent[4]?.replace(Regex("[^а-яА-Яa-zA-Z]"), "")
             }
         }
 
@@ -81,5 +82,8 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        fun checkString(r: String?) {
+
+        }
     }
 }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">20_02_2024_CLASSWORK</string>
+    <string name="preference_key_university_list">university_list</string>
 </resources>
