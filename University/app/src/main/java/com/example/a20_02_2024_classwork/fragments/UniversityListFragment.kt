@@ -1,12 +1,15 @@
 package com.example.a20_02_2024_classwork.fragments
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +20,7 @@ import com.example.a20_02_2024_classwork.data.University
 import com.example.a20_02_2024_classwork.databinding.FragmentUniversityListBinding
 
 class UniversityListFragment: Fragment(), MainActivity.Edit {
+
     companion object{
         private var INSTANCE: UniversityListFragment?=null
 
@@ -64,15 +68,37 @@ class UniversityListFragment: Fragment(), MainActivity.Edit {
         override fun onBindViewHolder(holder: UniversityAdapter.ItemHolder, position: Int) {
             holder.bind(viewModel.universityList.value!!.items[position])
         }
+
+        private var lastView : View? = null
+        private fun updateCurrentView(view: View) {
+            lastView?.findViewById<ConstraintLayout>(R.id.clUniversityElement)?.setBackgroundColor(
+                ContextCompat.getColor(requireContext(), R.color.white))
+            view.findViewById<ConstraintLayout>(R.id.clUniversityElement).setBackgroundColor(
+                ContextCompat.getColor(requireContext(), R.color.my_blue)
+            )
+
+        }
+
         private inner class ItemHolder(view: View): RecyclerView.ViewHolder(view){
             private lateinit var university: University
 
             fun bind(university: University){
+                if (university==viewModel.university)
+                    updateCurrentView(itemView)
+
                 this.university = university
                 val tv = itemView.findViewById<TextView>(R.id.tvUniversityName)
                 tv.text = university.name
                 val tvc = itemView.findViewById<TextView>(R.id.tvUniversityCity)
                 tvc.text = university.city
+
+                val cl = View.OnClickListener {
+                    viewModel.setCurrentUniversity(university)
+                    updateCurrentView(itemView)
+                }
+                view?.findViewById<ConstraintLayout>(R.id.clUniversityElement)?.setOnClickListener(cl)
+                tv.setOnClickListener(cl)
+                tvc.setOnClickListener(cl)
             }
         }
     }
@@ -82,11 +108,11 @@ class UniversityListFragment: Fragment(), MainActivity.Edit {
     }
 
     override fun delete() {
-        TODO("Not yet implemented")
+        deleteUniversity()
     }
 
     override fun update() {
-        TODO("Not yet implemented")
+        updateUniversity()
     }
 
     private fun newUniversity(){
@@ -102,10 +128,49 @@ class UniversityListFragment: Fragment(), MainActivity.Edit {
                     viewModel.appendUniversity(inputName.text.toString(), inputCity.text.toString())
                 }
             }
-            .setNegativeButton("отмена", null)
+            .setNegativeButton("Отмена", null)
             .setCancelable(true)
             .create()
             .show()
+    }
+
+    private fun updateUniversity(){
+        val mDialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_university_edit, null)
+        val inputName = mDialogView.findViewById<EditText>(R.id.etName)
+        val inputCity = mDialogView.findViewById<EditText>(R.id.etCity)
+        inputName.setText(viewModel.university?.name)
+        inputCity.setText(viewModel.university?.city)
+
+        AlertDialog.Builder(requireContext())
+            .setTitle("Изменить информацию об университете")
+            .setView(mDialogView)
+            .setPositiveButton("Изменить") {_, _ ->
+                if (inputName.text.isNotBlank() and inputCity.text.isNotBlank()) {
+                    viewModel.updateUniversity(inputName.text.toString(), inputCity.text.toString())
+                }
+            }
+            .setNegativeButton("Отмена", null)
+            .setCancelable(true)
+            .create()
+            .show()
+    }
+
+    private fun deleteUniversity(){
+        AlertDialog.Builder(requireContext())
+            .setTitle("Удалить информацию об университете")
+            .setMessage("Вы действительно хотите удалить университет ${viewModel.university?.name ?: ""}")
+            .setPositiveButton("Да") { _, _ ->
+                viewModel.deleteUniversity()
+            }
+            .setNegativeButton("Отмена", null)
+            .setCancelable(true)
+            .create()
+            .show()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (context as UpdateActivity).setTitle("Список университетов")
     }
 
 }
